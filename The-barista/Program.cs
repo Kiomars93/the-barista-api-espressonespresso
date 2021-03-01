@@ -12,14 +12,21 @@ namespace The_barista
         {
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
-            Console.WriteLine("Hello!");
+            var espresso = new Espresso
+            {
+                
+            };
+
         }
     }
 
     public interface IBevarage
     {
+        List<string> Ingredients { get; }
+        string CupType { get; }
         void AddWater();
         void AddBeans(int amount, string sort);
+        void AddMilk();
         void Validate();
         void ToBaverage();
     }
@@ -30,10 +37,18 @@ namespace The_barista
         private int _amount;
         private string _sort;
 
+        public List<string> Ingredients => throw new NotImplementedException();
+
+        public string CupType => throw new NotImplementedException();
+
         public void AddBeans(int amount, string sort)
         {
             _amount = amount;
             _sort = sort; // Arabica and Robusta
+        }
+        public void AddMilk()
+        {
+
         }
 
         public void AddWater()
